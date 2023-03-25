@@ -1,3 +1,5 @@
-﻿.vs
+/.vs
+*/bin/
+*/obj/
 hackathon/bin
-hackathon/obj
+/hackathon/obj
