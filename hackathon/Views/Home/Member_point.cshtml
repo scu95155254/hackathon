@@ -57,6 +57,7 @@ test
         width: 300px;
         height: 300px;
     }
+
     #area1 {
         position: absolute;
         z-index: 5;
@@ -65,6 +66,7 @@ test
         width: 222px;
         height: 222px;
     }
+
     #area2 {
         position: absolute;
         z-index: 5;
@@ -73,6 +75,7 @@ test
         width: 156px;
         height: 156px;
     }
+
     #area3 {
         position: absolute;
         z-index: 5;
@@ -81,6 +84,7 @@ test
         width: 156px;
         height: 156px;
     }
+
     #star {
         position: absolute;
         z-index: 5;
@@ -89,6 +93,7 @@ test
         width: 200px;
         height: 200px;
     }
+
     .main > div .discountBlock .cards .emptyInfo > span {
         font-size: 104px;
         color: #000;
@@ -100,7 +105,7 @@ test
         @{
             Html.RenderPartial("_MenuBarLeft");
         }
-        <div class="discountBlock"> 
+        <div class="discountBlock">
             <div class="titleBlock">
                 <div class="title">
                     <p>會員點數管理</p>
@@ -112,13 +117,14 @@ test
                 <div class="ntb_gplt">
                     <ul class="ntb-tabs ">
                         <li>
-                            <span class="ntb-tab active" data-toggle="availableUse">獅控宇宙</span>
-                        </li>
-                        <li>
                             <span class="ntb-tab" data-toggle="beUsed">我的獅毛幣</span>
                         </li>
                         <li>
-                            <span class="ntb-tab" data-toggle="unavailable">我的獅毛幣</span>
+                            <span class="ntb-tab active" data-toggle="availableUse">獅控宇宙</span>
+                        </li>
+                        4
+                        <li>
+                            <span class="ntb-tab" data-toggle="unavailable">兌換專區</span>
                         </li>
 
                     </ul>
@@ -145,7 +151,7 @@ test
                     <div class="ntb-content" name="beUsed">
                         <div class="cardsContainer">
                             <!-- 每張卡片 -->
-                            <div class="cards"  style="background-image: url('../../img/u28.jpg'); >
+                            <div class="cards" style="background-image: url('../../img/u28.jpg'); >
                                 <div class="orderByBlock">
                                     <!-- 我的獅毛幣 -->
                                     @*<p><span class="icon ic-ln toolremind"></span>僅顯示到期日為6個月內的紀錄</p>*@
@@ -157,14 +163,14 @@ test
 
 
                                         <div class="items emptyInfo">
-                                            
+
                                             <span>1000點</span>
 
                                         </div>
 
-                                        
+
                                     </div>
-                                  
+
 
                                 </div>
                                 <div class="itemsWrap">
@@ -174,14 +180,17 @@ test
                         </div>
                     </div>
 
-                    <div class="ntb-content" name="unavailable">
+                    <div class="ntb-content2" name="unavailable">
                         <div class="cardsContainer">
                             <!-- 每張卡片 -->
                             <!-- 兌換專區 -->
-                            <div class="cards">
-                                <div class="orderByBlock">
-                                    @*<p><span class="icon ic-ln toolremind"></span>僅顯示到期日為6個月內的紀錄</p>*@
+                            <div class="cards" style="background-image: url('../../img/u28.jpg'); >
+                                <div id="bg">
 
+                                    <a href="/Home/area1"><img src="~/img/airplane.png" alt="turntable" id="are4"></a>
+                                    <a href="/Home/area2"><img src="/img/u30.png" alt="turntable" id="area5"></a>
+                                    <img src="/img/u29.png" alt="turntable" id="area6">
+                                    
                                 </div>
                                 <div class="itemsWrap">
 
