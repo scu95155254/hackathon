@@ -84,7 +84,30 @@ test
         width: 156px;
         height: 156px;
     }
-
+    #area4 {
+        position: absolute;
+        z-index: 5;
+        top: 10px;
+        left: -80px;
+        width: 156px;
+        height: 156px;
+    }
+    #area5 {
+        position: absolute;
+        z-index: 5;
+        top: 10px;
+        left: 106px;
+        width: 156px;
+        height: 156px;
+    }
+    #area6 {
+        position: absolute;
+        z-index: 5;
+        top: 10px;
+        left: 306px;
+        width: 156px;
+        height: 156px;
+    }
     #star {
         position: absolute;
         z-index: 5;
@@ -93,7 +116,12 @@ test
         width: 200px;
         height: 200px;
     }
-
+    .pointcount {
+        top: 200px;
+        font-size: 70px;
+        width: 250px;
+        height: 250px;
+    }
     .main > div .discountBlock .cards .emptyInfo > span {
         font-size: 104px;
         color: #000;
@@ -117,12 +145,13 @@ test
                 <div class="ntb_gplt">
                     <ul class="ntb-tabs ">
                         <li>
-                            <span class="ntb-tab" data-toggle="beUsed">我的獅毛幣</span>
-                        </li>
-                        <li>
                             <span class="ntb-tab active" data-toggle="availableUse">獅控宇宙</span>
                         </li>
-                        4
+                        <li>
+                            <span class="ntb-tab" data-toggle="beUsed">我的獅毛幣</span>
+                        </li>
+
+
                         <li>
                             <span class="ntb-tab" data-toggle="unavailable">兌換專區</span>
                         </li>
@@ -160,11 +189,11 @@ test
                                     <div id="bg">
                                         <img src="~/img/ustar.png" alt="star" id="star" />
 
-
+                                        <div class="pointcount">1000點</div>
 
                                         <div class="items emptyInfo">
 
-                                            <span>1000點</span>
+                                            <span></span>
 
                                         </div>
 
@@ -178,22 +207,27 @@ test
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="ntb-content2" name="unavailable">
-                        <div class="cardsContainer">
-                            <!-- 每張卡片 -->
-                            <!-- 兌換專區 -->
-                            <div class="cards" style="background-image: url('../../img/u28.jpg'); >
-                                <div id="bg">
 
-                                    <a href="/Home/area1"><img src="~/img/airplane.png" alt="turntable" id="are4"></a>
-                                    <a href="/Home/area2"><img src="/img/u30.png" alt="turntable" id="area5"></a>
-                                    <img src="/img/u29.png" alt="turntable" id="area6">
-                                    
-                                </div>
-                                <div class="itemsWrap">
+                        <div class="ntb-content" name="unavailable">
+                            <div class="cardsContainer">
+                                <!-- 每張卡片 -->
+                                <!-- 兌換專區 -->
+                                <div class="cards" style="background-image: url('../../img/u28.jpg'); ">
+                                    <div id="bg">
 
+                                        <a href="/Home/area1"><img src="~/img/airplane.png" alt="turntable" id="area4"></a>
+                                        <a href="/Home/area2"><img src="/img/u30.png" alt="turntable" id="area5"></a>
+                                        <img src="/img/u29.png" alt="turntable" id="area6">
+
+                                        <div style="top:100px;">
+                                            werwe
+                                        </div>
+
+                                    </div>
+                                    <div class="itemsWrap">
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
