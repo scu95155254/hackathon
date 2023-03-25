@@ -51,5 +51,11 @@ namespace hackathon.Controllers
 
             return View();
         }
+        public ActionResult area3()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }

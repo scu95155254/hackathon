@@ -139,6 +139,7 @@
     <Content Include="img\bannerPc.png" />
     <Content Include="img\Lion.png" />
     <Content Include="img\LionHead.png" />
+    <Content Include="img\LionHead2.png" />
     <Content Include="img\Lion_face.png" />
     <Content Include="img\Lion_face_new.png" />
     <Content Include="img\Lion_hair.png" />
@@ -148,6 +149,7 @@
     <Content Include="img\u28.jpg" />
     <Content Include="img\u29.jpg" />
     <Content Include="img\u29.png" />
+    <Content Include="img\u30.jpg" />
     <Content Include="img\u30.png" />
     <Content Include="img\u31.png" />
     <Content Include="img\u32.jpg" />
@@ -190,6 +192,7 @@
     <Content Include="Views\Home\Lion1.cshtml" />
     <Content Include="Views\Home\area2.cshtml" />
     <Content Include="Views\Home\area1.cshtml" />
+    <Content Include="Views\Home\area3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Member_point";
+    ViewBag.Title = "Lion1";
 }
 
 @section head
@@ -43,11 +43,18 @@ test
         position: absolute;
         z-index: 10;
         top: 60px;
-        left: 157px;
+        left: 117px;
         width: 300px;
         height: 300px;
     }
-
+    #pointer2 {
+        position: absolute;
+        z-index: 10;
+        top: 260px;
+        left: 557px;
+        width: 200px;
+        height: 200px;
+    }
     #turntable {
         position: absolute;
         z-index: 5;
@@ -118,7 +125,7 @@ test
                             <span class="ntb-tab" data-toggle="beUsed">我的獅毛幣</span>
                         </li>
                         <li>
-                            <span class="ntb-tab" data-toggle="unavailable">兌換專區</span>
+                            <span class="ntb-tab" data-toggle="unavailable">我的獅毛幣</span>
                         </li>
 
                     </ul>
@@ -127,15 +134,62 @@ test
                     <div class="ntb-content" name="availableUse">
                         <div class="cardsContainer">
                             <!-- 每張卡片 -->
-                            <div class="cards" style="background-image: url('../../img/u28.jpg'); ">
+                            <div class="cards" style="background-image: url('../../img/u30.jpg'); width: 878px; height: 500px;">
                                 <!-- 獅控宇宙 -->
                                 <!-- 这里是HTML结构部分 -->
                                 <div id="bg">
-                                    <a href="/Home/Lion1"><img src="/img/u31.png" alt="pointer" id="pointer"></a>
 
-                                    <a href="/Home/area1"><img src="/img/u32.png" alt="turntable" id="area1"></a>
-                                    <a href="/Home/area2"><img src="/img/u30.png" alt="turntable" id="area2"></a>
-                                    <a href="/Home/area3"><img src="/img/u29.png" alt="turntable" id="area3"></a>
+                                    <!-- 轉盤 -->
+                                    <div id="bg">
+                                        <img src="/img/Lion_face_new.png" alt="pointer" id="pointer">
+                                        <img src="/img/LionHead2.png" alt="turntable" id="turntable">
+                                    </div>
+                                    <!-- 这里是js部分 -->
+                                    <script>
+                                        var oPointer = document.getElementsByTagName("img")[0];
+                                        var oTurntable = document.getElementsByTagName("img")[1];
+                                        var cat = 51.4; //总共7个扇形区域，每个区域约51.4度
+                                        var num = 0; //转圈结束后停留的度数
+                                        var offOn = true; //是否正在抽奖
+                                        oPointer.onclick = function () {
+                                            if (offOn) {
+                                                oTurntable.style.transform = "rotate(0deg)";
+                                                offOn = !offOn;
+                                                ratating();
+                                            }
+                                        }
+                                        //旋转
+                                        function ratating() {
+                                            var timer = null;
+                                            var rdm = 0; //随机度数
+                                            clearInterval(timer);
+                                            timer = setInterval(function () {
+                                                if (Math.floor(rdm / 360) < 3) { rdm = Math.floor(Math.random() * 3600); }
+                                                else {
+                                                    oTurntable.style.transform = "rotate(" + rdm + "deg)";
+                                                    clearInterval(timer);
+                                                    setTimeout(function () {
+                                                        offOn = !offOn;
+                                                        num = rdm % 360;
+                                                        if (num <= cat * 1) { alert("獅毛幣100點"); console.log("rdm=" + rdm + "，num=" + num + "，" + "獅毛幣100點"); }
+                                                        else if (num <= cat * 2) { alert("獅毛幣50點"); console.log("rdm=" + rdm + "，num=" + num + "，" + "獅毛幣50點"); }
+                                                        else if (num <= cat * 3) { alert("獅毛幣10點"); console.log("rdm=" + rdm + "，num=" + num + "，" + "獅毛幣10點"); }
+                                                        else if (num <= cat * 4) { alert("獅毛幣5點"); console.log("rdm=" + rdm + "，num=" + num + "，" + "獅毛幣5點"); }
+                                                        else if (num <= cat * 5) { alert("獅毛幣3點"); console.log("rdm=" + rdm + "，num=" + num + "，" + "獅毛幣3點"); }
+                                                        else if (num <= cat * 6) { alert("獅毛幣2點"); console.log("rdm=" + rdm + "，num=" + num + "，" + "獅毛幣2點"); }
+                                                        else if (num <= cat * 7) { alert("獅毛幣1點"); console.log("rdm=" + rdm + "，num=" + num + "，" + "獅毛幣1點"); }
+                                                    }, 4000);
+                                                }
+                                            }, 30);
+                                        }
+                                    </script>
+
+
+
+
+
+
+                                    <a href="/Home/member_point"><img src="/img/u31.png" alt="pointer2" id="pointer2"></a>
                                 </div>
 
                             </div>
