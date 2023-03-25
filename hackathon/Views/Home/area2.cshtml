@@ -57,6 +57,7 @@ test
         width: 300px;
         height: 300px;
     }
+
     #area1 {
         position: absolute;
         z-index: 5;
@@ -65,6 +66,7 @@ test
         width: 222px;
         height: 222px;
     }
+
     #area2 {
         position: absolute;
         z-index: 5;
@@ -73,6 +75,16 @@ test
         width: 156px;
         height: 156px;
     }
+
+    #placeholder {
+        position: absolute;
+        z-index: 5;
+        top: 100px;
+        left: 60px;
+        width: 50px;
+        height: 50px;
+    }
+
     #area3 {
         position: absolute;
         z-index: 5;
@@ -81,6 +93,7 @@ test
         width: 156px;
         height: 156px;
     }
+
     #star {
         position: absolute;
         z-index: 5;
@@ -89,6 +102,7 @@ test
         width: 200px;
         height: 200px;
     }
+
     .main > div .discountBlock .cards .emptyInfo > span {
         font-size: 104px;
         color: #000;
@@ -100,7 +114,7 @@ test
         @{
             Html.RenderPartial("_MenuBarLeft");
         }
-        <div class="discountBlock"> 
+        <div class="discountBlock">
             <div class="titleBlock">
                 <div class="title">
                     <p>會員點數管理</p>
@@ -131,6 +145,8 @@ test
                                 <!-- 獅控宇宙 -->
                                 <!-- 这里是HTML结构部分 -->
                                 <div id="bg">
+                                    <img src="~/img/placeholder.png" id="placeholder" onclick="City_onClick()" />
+                                    <p id="CityName"></p>
                                     <a href="/Home/member_point"><img src="/img/u31.png" alt="pointer" id="pointer"></a>
                                 </div>
 
@@ -141,7 +157,7 @@ test
                     <div class="ntb-content" name="beUsed">
                         <div class="cardsContainer">
                             <!-- 每張卡片 -->
-                            <div class="cards"  style="background-image: url('../../img/u28.jpg'); >
+                            <div class="cards" style="background-image: url('../../img/u28.jpg'); >
                                 <div class="orderByBlock">
                                     <!-- 我的獅毛幣 -->
                                     @*<p><span class="icon ic-ln toolremind"></span>僅顯示到期日為6個月內的紀錄</p>*@
@@ -153,14 +169,14 @@ test
 
 
                                         <div class="items emptyInfo">
-                                            
+
                                             <span>1000點</span>
 
                                         </div>
 
-                                        
+
                                     </div>
-                                  
+
 
                                 </div>
                                 <div class="itemsWrap">
@@ -197,8 +213,25 @@ test
 
 @section scripts
 {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="~/Scripts/member_discount.bundle.js?@DateTime.Now.ToString("yyyyMMddHH")"></script>
     <script type="text/javascript">
+
+        function City_onClick() {
+            $.ajax({
+                url: '/Home/CityData',
+                type: 'GET',
+                async: false,
+                success: function (result) {
+                    console.log("success");
+                    $("#CityName").text(result);
+                    alert(result);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log("error");
+                }
+            });
+        }
 
         // 點我看更多
         function More() {

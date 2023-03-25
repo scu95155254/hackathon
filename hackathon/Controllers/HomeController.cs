@@ -52,11 +52,97 @@ namespace hackathon.Controllers
 
             return View();
         }
-        public ActionResult area2()
+        public async Task<ActionResult> area2()
         {
             ViewBag.Message = "Your contact page.";
 
+            #region 數據部 - 得到縣市列表資料使用
+            var getToken1 = await HackathonHttpClientHandler.GetToken();
+
+            //動態傳入參數 // 美利堅合眾國、瑞士聯邦、中華民國
+            var CountryID = new string[] { "22531", "6712", "13323" };
+
+            HttpClient client1 = new HttpClient();
+            client1.BaseAddress = new Uri("https://uds.api.liontravel.com");
+            client1.DefaultRequestHeaders.Add("Authorization", getToken1);
+            HttpResponseMessage response1 = await client1.GetAsync($"api/v2/AreaList?country_id=13323");
+            var result1 = await response1.Content.ReadAsStringAsync();
+
+            if (!response1.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+            var getAreaListData = JsonHelper.DeserializeObject<ResponseBase<AreaListModel>>(result1).Data;
+            #endregion
+
+            #region 數據部 - 取得附近景點
+            var getToken2 = await HackathonHttpClientHandler.GetToken();
+
+            //動態傳入參數 // 台北市
+            var AreaID = getAreaListData.area.Where(w => w.area_id == 13345).Select(s => s.area_id).ToList();
+
+            HttpClient client2 = new HttpClient();
+            client2.BaseAddress = new Uri("https://uds.api.liontravel.com");
+            client2.DefaultRequestHeaders.Add("Authorization", getToken2);
+            HttpResponseMessage response2 = await client2.GetAsync($"api/v2/PoiList?area_id={AreaID.First()}");
+            var result2 = await response2.Content.ReadAsStringAsync();
+
+            if (!response2.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+            var getPoiListModelData = JsonHelper.DeserializeObject<ResponseBase<PoiListModel>>(result2).Data;
+            #endregion
+
             return View();
+        }
+
+        [HttpGet]
+        public async Task<JsonResult> CityData()
+        {
+            #region 數據部 - 得到縣市列表資料使用
+            var getToken1 = await HackathonHttpClientHandler.GetToken();
+
+            //動態傳入參數 // 美利堅合眾國、瑞士聯邦、中華民國
+            var CountryID = new string[] { "22531", "6712", "13323" };
+
+            HttpClient client1 = new HttpClient();
+            client1.BaseAddress = new Uri("https://uds.api.liontravel.com");
+            client1.DefaultRequestHeaders.Add("Authorization", getToken1);
+            HttpResponseMessage response1 = await client1.GetAsync($"api/v2/AreaList?country_id=13323");
+            var result1 = await response1.Content.ReadAsStringAsync();
+
+            if (!response1.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+            var getAreaListData = JsonHelper.DeserializeObject<ResponseBase<AreaListModel>>(result1).Data;
+            #endregion
+
+            #region 數據部 - 取得附近景點
+            var getToken2 = await HackathonHttpClientHandler.GetToken();
+
+            //動態傳入參數 // 台北市
+            var AreaID = getAreaListData.area.Where(w => w.area_id == 13345).Select(s => s.area_id).ToList();
+
+            HttpClient client2 = new HttpClient();
+            client2.BaseAddress = new Uri("https://uds.api.liontravel.com");
+            client2.DefaultRequestHeaders.Add("Authorization", getToken2);
+            HttpResponseMessage response2 = await client2.GetAsync($"api/v2/PoiList?area_id={AreaID.First()}");
+            var result2 = await response2.Content.ReadAsStringAsync();
+
+            if (!response2.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+            var getPoiListModelData = JsonHelper.DeserializeObject<ResponseBase<PoiListModel>>(result2).Data;
+            #endregion
+
+            return Json(getPoiListModelData.pois.First().name, JsonRequestBehavior.AllowGet);
         }
 
         public async Task<ActionResult> Member_pointAsync()

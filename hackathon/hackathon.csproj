@@ -217,6 +217,7 @@
     <Content Include="img\Lion_face.png" />
     <Content Include="img\Lion_face_new.png" />
     <Content Include="img\Lion_hair.png" />
+    <Content Include="img\placeholder.png" />
     <Content Include="img\pointer.png" />
     <Content Include="img\ticket %281%29.png" />
     <Content Include="img\ticket.png" />
