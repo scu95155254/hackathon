@@ -176,8 +176,14 @@
     <Compile Include="Application\ConfigSettings.cs" />
     <Compile Include="Application\Entities\AreaListModel.cs" />
     <Compile Include="Application\Entities\ArrivesGainModel.cs" />
+    <Compile Include="Application\Entities\EnumExtension.cs" />
+    <Compile Include="Application\Entities\GetItemDetailsModel.cs" />
+    <Compile Include="Application\Entities\GetGroupInfoModel.cs" />
     <Compile Include="Application\Entities\PoiListModel.cs" />
     <Compile Include="Application\Entities\ResponseBase.cs" />
+    <Compile Include="Application\Entities\SearchInfoModel.cs" />
+    <Compile Include="Application\Entities\SearchRequestData.cs" />
+    <Compile Include="Application\Entities\StatusEnum.cs" />
     <Compile Include="Application\ExApiResponse.cs" />
     <Compile Include="Application\ExApiTokenRequest.cs" />
     <Compile Include="Application\ExApiTokenResponse.cs" />
