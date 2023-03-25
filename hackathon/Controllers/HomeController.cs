@@ -33,5 +33,23 @@ namespace hackathon.Controllers
 
             return View();
         }
+        public ActionResult Lion1()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+        public ActionResult area1()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+        public ActionResult area2()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }
