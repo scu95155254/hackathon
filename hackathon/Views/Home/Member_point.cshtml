@@ -1,0 +1,294 @@
+﻿
+@{
+    ViewBag.Title = "Member_point";
+}
+
+@section head
+{
+    <link href="~/Content/member_discount.css?@DateTime.Now.ToString("yyyyMMddHH")" rel="stylesheet" />
+}
+<h2>Member_point</h2>
+
+test
+
+
+@using System.Configuration
+
+
+
+
+<!-- 麵包屑 -->
+
+<div class="trail">
+    <div class="bannerContainer">
+        <div class="banner"></div>
+    </div>
+
+    <div class="nav">
+        <a href=""> 雄獅旅遊 </a> <span class="icon ic-ln toolnext"></span>
+        <a href=""> 會員中心 </a> <span class="icon ic-ln toolnext"></span>
+        <a href="@Url.Action("MyCouponList", "Coupon")"> 轉盤抽獎 </a>
+    </div>
+</div>
+<style>
+    #bg {
+        width: 650px;
+        height: 600px;
+        margin: 0 auto;
+        /*background: url(/img/u28.jpg) no-repeat;*/
+        position: relative;
+    }
+
+    #pointer {
+        position: absolute;
+        z-index: 10;
+        top: 60px;
+        left: 157px;
+        width: 300px;
+        height: 300px;
+    }
+
+    #turntable {
+        position: absolute;
+        z-index: 5;
+        top: 60px;
+        left: 116px;
+        transition: all 4s;
+        width: 300px;
+        height: 300px;
+    }
+    #area1 {
+        position: absolute;
+        z-index: 5;
+        top: 360px;
+        left: 10px;
+        width: 222px;
+        height: 222px;
+    }
+    #area2 {
+        position: absolute;
+        z-index: 5;
+        top: 380px;
+        left: 266px;
+        width: 156px;
+        height: 156px;
+    }
+    #area3 {
+        position: absolute;
+        z-index: 5;
+        top: 380px;
+        left: 506px;
+        width: 156px;
+        height: 156px;
+    }
+    #star {
+        position: absolute;
+        z-index: 5;
+        top: 80px;
+        left: 226px;
+        width: 200px;
+        height: 200px;
+    }
+</style>
+<div class="main">
+    <div>
+        @{
+            Html.RenderPartial("_MenuBarLeft");
+        }
+        <div class="discountBlock"> 
+            <div class="titleBlock">
+                <div class="title">
+                    <p>會員點數管理</p>
+                    @*<a href="https://info.liontravel.com/category/zh-tw/support/faq#n5" target="_blank">轉盤抽獎</a>*@
+                </div>
+            </div>
+            <div class="discount-tabWrap">
+
+                <div class="ntb_gplt">
+                    <ul class="ntb-tabs ">
+                        <li>
+                            <span class="ntb-tab active" data-toggle="availableUse">獅控宇宙</span>
+                        </li>
+                        <li>
+                            <span class="ntb-tab" data-toggle="beUsed">我的獅毛幣</span>
+                        </li>
+                        <li>
+                            <span class="ntb-tab" data-toggle="unavailable">我的獅毛幣</span>
+                        </li>
+
+                    </ul>
+
+                    <!-- 這裡寫模組的內容 -->
+                    <div class="ntb-content" name="availableUse">
+                        <div class="cardsContainer">
+                            <!-- 每張卡片 -->
+                            <div class="cards" style="background-image: url('../../img/u28.jpg'); ">
+                                <!-- 獅控宇宙 -->
+                                <!-- 这里是HTML结构部分 -->
+                                <div id="bg">
+                                    <img src="/img/u31.png" alt="pointer" id="pointer">
+
+                                    <img src="/img/u32.png" alt="turntable" id="area1">
+                                    <img src="/img/u30.png" alt="turntable" id="area2">
+                                    <img src="/img/u29.png" alt="turntable" id="area3">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ntb-content" name="beUsed">
+                        <div class="cardsContainer">
+                            <!-- 每張卡片 -->
+                            <div class="cards"  style="background-image: url('../../img/u28.jpg'); >
+                                <div class="orderByBlock">
+                                    <!-- 我的獅毛幣 -->
+                                    @*<p><span class="icon ic-ln toolremind"></span>僅顯示到期日為6個月內的紀錄</p>*@
+
+                                    <!-- 这里是HTML结构部分 -->
+                                    <div id="bg">
+                                        <img src="~/img/ustar.png" alt="star" id="star" />
+
+                                        <p>1000點</p>
+
+                                    </div>
+                                  
+
+                                </div>
+                                <div class="itemsWrap">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ntb-content" name="unavailable">
+                        <div class="cardsContainer">
+                            <!-- 每張卡片 -->
+                            <!-- 兌換專區 -->
+                            <div class="cards">
+                                <div class="orderByBlock">
+                                    @*<p><span class="icon ic-ln toolremind"></span>僅顯示到期日為6個月內的紀錄</p>*@
+
+                                </div>
+                                <div class="itemsWrap">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!----------------------------------------------------------------------------------------------------->
+
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/member_discount.bundle.js?@DateTime.Now.ToString("yyyyMMddHH")"></script>
+    <script type="text/javascript">
+
+        // 點我看更多
+        function More() {
+            var doCount = 0;
+            $(".d-no").each(function () {
+                doCount++;
+                if (doCount > 8)
+                    return;
+                $(this).removeClass("d-no");
+            });
+            if ($(".d-no").length == 0)
+                $(".moreBtn").hide();
+        }
+
+        // 排序
+        function OrderBy(contentType, orderType) {
+            var content = $(".ntb-content[name='" + contentType + "']");
+            content.find(".d-no").each(function () {
+                $(this).removeClass("d-no"); //全部先顯示
+            });
+            var CouponCount = content.find(".discount-ticket").length;
+            for (var i = 0; i < CouponCount; i++) {
+                var CouponDiv = content.find(".discount-ticket[data-" + orderType + "='" + i + "']");
+                content.find(".items").append(CouponDiv); //重新排序
+            }
+            //可使用的後8筆都隱藏
+            if (contentType == "availableUse" && CouponCount > 8) {
+                var index = 0;
+                content.find(".discount-ticket").each(function () {
+                    index++;
+                    if (index > 8) $(this).addClass("d-no"); //可使用的後8筆都隱藏
+                });
+            }
+
+            if (content.find(".moreBtn").length > 0)
+                content.find(".moreBtn").show(); //重現點我看更多
+            //debugger;
+            var html = content.find(".orderBy").children("a").html();
+            if (orderType == "SortExpNum")
+                content.find(".orderBy").children("a").html(html.replace("折扣金額", "有效期限"));
+            if (orderType == "SortPriceNum")
+                content.find(".orderBy").children("a").html(html.replace("有效期限", "折扣金額"));
+        }
+
+
+
+        $('.ntb_gplt').ntb_gplt({
+            openAnimate: null,
+            clickTabToClose: false,
+            enableTabScrollbar: true, //這裡 寫true 會把 tabScrollbar 的class寫入
+            enableTabArrow: false,
+            cssClass: {
+                tabScrollbar: 'xs_ntb_scroll_tabs ntb_line nowrapper'
+                // 寫入的內容
+            }
+        });
+
+        // orderBy 依價格排序
+        $('.orderBy > a').click(function () {
+            $(this).parent().toggleClass('active')
+        })
+        $('.orderBy > div > a').click(function () {
+            $(this).parents('.orderBy').toggleClass('active')
+        })
+
+        // 開啟狀態 點擊旁邊 會關掉orderBy
+        $(window).click(function (e) {
+            if ($(e.target).parents('.orderBy').length === 0) {
+                $('.orderBy').removeClass('active')
+                // 點擊外側 關掉active
+            }
+        })
+
+        function setPP_Ln() {
+            if (innerWidth < 980) {
+                // 手機板 使用backdrop
+                $('.availableShow.show-pop').pp_ln({
+                    backdrop: true,
+                    animation: 'fade'
+                });
+            } else if (innerWidth > 980) {
+                // 電腦一般
+                $('.availableShow.show-pop').pp_ln();
+            }
+        }
+        setPP_Ln();
+
+        let timer;
+        $(window).resize(function () {
+            clearTimeout(timer)
+            timer = setTimeout(() => {
+                // pp_ln destroy
+                console.log('destroy pp_ln')
+                $('.availableShow.show-pop').pp_ln('destroy');
+                setPP_Ln();
+            }, 100)
+        })
+    </script>
+}
+
+

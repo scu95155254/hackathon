@@ -1,0 +1,62 @@
+﻿
+@using System.Configuration
+@{string ControllerName = "";}
+<div class="memberBlock">
+	<div class="member">
+		<div class="profile">
+			<a href="">
+				<span>會員您好</span>
+			</a>
+		</div>
+		<div>
+			<a href="" class="order">
+				<span>會員訂單查詢</span>
+			</a>
+		</div>
+		<div>
+			<a href="" class="order">
+				<span>會員點數管理</span>
+			</a>
+		</div>
+		<div>
+			<a href="" class="coupon">
+				<i class="icon ic-ln tickettwo"></i><span>折扣碼專區</span>
+			</a>
+		</div>
+		<div>
+			<a href="" class="order">
+				<i class="icon ic-ln toolmyorder"></i><span>會員訂單查詢</span>
+			</a>
+		</div>
+		<div>
+			<a href="" class="@(ControllerName == "favorite" ? "active" : "")">
+				<i class="icon ic-ln toollike"></i><span>我的收藏</span>
+			</a>
+		</div>
+		<div>
+			<a href="" class="@(ControllerName == "friendsinfo" ? "active" : "")">
+				<i class="icon ic-ln note"></i><span>常用旅客名單</span>
+			</a>
+		</div>
+		<div>
+			<a href="" class="@(ControllerName == "profile" ? "active" : "")">
+				<i class="icon ic-ln edit_gear"></i><span>會員帳號管理</span>
+			</a>
+		</div>
+		<div>
+			<a href="">
+				<i class="icon ic-ln toolmemberfat"></i><span>會員服務</span>
+			</a>
+		</div>
+		<div>
+			<a href="">
+				<i class="icon ic-ln home_thick"></i><span>回首頁</span>
+			</a>
+		</div>
+	</div>
+	<div class="downloadApp">
+		<div>
+			<a href="https://info.liontravel.com/category/zh-tw/app/appdownload" target="_blank"><i class="icon ic-ln toolcell"></i><span>下載APP</span></a>
+		</div>
+	</div>
+</div>

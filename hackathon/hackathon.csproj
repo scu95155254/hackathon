@@ -131,12 +131,28 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\member_discount.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\bannerPc.png" />
+    <Content Include="img\Lion.png" />
+    <Content Include="img\Lion_face.png" />
+    <Content Include="img\Lion_face_new.png" />
+    <Content Include="img\Lion_hair.png" />
+    <Content Include="img\pointer.png" />
+    <Content Include="img\turntable-bg.jpg" />
+    <Content Include="img\turntable.png" />
+    <Content Include="img\u28.jpg" />
+    <Content Include="img\u29.png" />
+    <Content Include="img\u30.png" />
+    <Content Include="img\u31.png" />
+    <Content Include="img\u32.png" />
+    <Content Include="img\ustar.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="img\Lion_hair.rar" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -147,7 +163,9 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\member_discount.bundle.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\site.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -162,6 +180,8 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Member_point.cshtml" />
+    <Content Include="Views\Shared\_MenuBarLeft.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

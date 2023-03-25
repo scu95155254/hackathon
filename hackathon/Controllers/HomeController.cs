@@ -26,5 +26,12 @@ namespace hackathon.Controllers
 
             return View();
         }
+
+        public ActionResult Member_point()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }
